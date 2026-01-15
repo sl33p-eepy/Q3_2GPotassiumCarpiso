@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Application Form</title>
+
+    <script>
+        function confirmSubmit() {
+            return confirm("Are you sure you want to submit this application?");
+        }
+
+        function confirmReset() {
+            return confirm("Are you sure you want to reset the form?");
+        }
+
+        function checkEmpty(element) {
+            if (element.value.trim() === "") {
+                element.classList.add("error");
+            } else {
+                element.classList.remove("error");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <form method="post" action="submit" onsubmit="return confirmSubmit()" onreset="return confirmReset()">
+
+        <!-- 1 to 4-->
+         <fieldset>
+            <legend>Student Information</legend>
+
+            <label>
+                Student ID:
+                <input type="number" required>
+            </label>
+
+            <label>
+                Full Name:
+                <input type="text" required onblur="checkEmpty(this)">
+            </label>
+
+            <label>
+                Birthday:
+                <input type="date" required>
+            </label>
+
+            <label>
+                Email Address:
+                <input type="email" required>
+            </label>
+         </fieldset>
+
+         <!-- 5 to 8-->
+         <fieldset>
+            <legend>Application Details</legend>
+
+            <label>
+                Mobile Phone Number:
+                <input type="text" required onblur="checkEmpty(this)">
+            </label>
+
+            <label>
+                Grade Level:
+                <select required>
+                    <option value="" disabled selected>Select Grade</option>
+                    <option value="g7">Grade 7</option>
+                    <option value="g8">Grade 8</option>
+                    <option value="g9">Grade 9</option>
+                    <option value="g10">Grade 10</option>
+                    <option value="g11">Grade 11</option>
+                    <option value="g12">Grade 12</option>
+                </select>
+            </label>
+
+            <label>
+                Intern / Extern:
+                <input type="radio" name="type" value="intern" required> Intern
+                <input type="radio" name="type" value="extern" required> Extern
+            </label>
+
+            <label>
+                Choose Club:
+                <select required>
+                    <option value="" disabled selected>Select Club</option>
+                    <option value="alianti">Alianti [Frisbee]</option>
+                    <option value="sagala">Sagala [Dance]</option>
+                    <option value="himigagham">Himig Agham [Choral]</option>
+                    <option value="kamalayan">Kamalayan [Filipino Theater]</option>
+                    <option value="celluloid">Celluloid [Film]</option>
+                    <option value="exposure">Exposure [Photography]</option>
+                    <option value="atom">Atom [Chemistry]</option>
+                </select>
+            </label>
+
+            <label>
+                Why do you want to join?
+                <textarea required onblur="checkEmpty(this)" rows="5"></textarea>
+            </label>
+         </fieldset>
+
+         <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+         </div>
+    </form>
+</body>
