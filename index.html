@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Application Form</title>
 
     <script>
@@ -25,54 +24,97 @@
 
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-size: 2vh;
+            background-color: #f6f6f6;
         }
 
         main {
-            margin: 2vh;
-            padding: 1vh;
-            font-size: 2.3vh;
+            padding: 20px;
         }
 
         header {
-            width: 100%;
             background-color: rgb(219, 123, 147);
             color: white;
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 1.5vh;
+            padding: 2vh;
         }
 
         fieldset {
             display: flex;
             flex-direction: column;
-            margin: auto 35vh;
+            margin: 18px auto;
             padding: 12px;
-            gap: 4px;
+            width: 50%;
+            gap: 10px;
+            border: 1px solid;
+            border-radius: 8px;
             font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
-        textarea {
+        fieldset + fieldset {
+            margin-top: 5vh;
+        }
+
+        .rd-grp {
+            display: flex;
+            gap: 50px;
+            margin-top: 5px;
+        }
+
+        .rd-opt {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        input:not([type="radio"]), select, textarea {
+            padding: 6px;
             display: flex;
             flex-direction: column;
             width: 40vh;
+            width: 70%
         }
 
+        legend {
+            font-weight: bold;
+            font-size: 2.5vh;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error {
+            border: 2px solid rgb(219, 43, 43);
+            background-color: #ffeaea;
+        }
+
+        input:focus, select:focus, textarea:focus{
+            outline: none;
+            border: 1px solid #545f8b;
+            background-color: #eef2ff;
+        }
         .buttons {
-            margin: auto 35vh;
-            padding-top: 4vh;
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            margin: 18px auto;
         }
 
         .button {
             font-size: 2vh;
             border: none;
-            background-color: rgb(135, 135, 216);
+            background-color: rgb(138, 76, 101);
             color: white;
-            padding: 2vh;
+            padding: 12px 20px;
             border-radius: 4px;
             margin: 5px;
+            cursor: pointer;
+            margin: 4px;
         }
     </style>
 </head>
@@ -135,8 +177,15 @@
 
             <label>
                 Intern / Extern:
-                <input type="radio" name="type" value="intern" required> Intern
-                <input type="radio" name="type" value="extern" required> Extern
+                <div class="rd-grp">
+                    <label class="rd-opt">
+                        <input type="radio" name="type" value="intern" required> Intern
+                    </label>
+
+                    <label class="rd-opt">
+                        <input type="radio" name="type" value="extern" required> Extern
+                    </label>
+                </div>
             </label>
 
             <label>
