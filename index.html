@@ -22,9 +22,68 @@
             }
         }
     </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 2vh;
+        }
+
+        main {
+            margin: 2vh;
+            padding: 1vh;
+            font-size: 2.3vh;
+        }
+
+        header {
+            width: 100%;
+            background-color: rgb(219, 123, 147);
+            color: white;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 1.5vh;
+        }
+
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            margin: auto 35vh;
+            padding: 12px;
+            gap: 4px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        textarea {
+            display: flex;
+            flex-direction: column;
+            width: 40vh;
+        }
+
+        .buttons {
+            margin: auto 35vh;
+            padding-top: 4vh;
+        }
+
+        .button {
+            font-size: 2vh;
+            border: none;
+            background-color: rgb(135, 135, 216);
+            color: white;
+            padding: 2vh;
+            border-radius: 4px;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
 
+    <header>
+        <h1>Club Application Form</h1>
+        <p>SY 2025-2026</p>
+    </header>
+
+    <main>
     <form method="post" action="submit" onsubmit="return confirmSubmit()" onreset="return confirmReset()">
 
         <!-- 1 to 4-->
@@ -101,8 +160,9 @@
          </fieldset>
 
          <div class="buttons">
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
+            <input type="submit" value="Submit" class="button">
+            <input type="reset" value="Reset" class="button">
          </div>
     </form>
+    </main>
 </body>
