@@ -126,7 +126,8 @@
     </header>
 
     <main>
-    <form method="post" action="submit" onsubmit="return confirmSubmit()" onreset="return confirmReset()">
+    <form id="signupForm" method="post" onsubmit="return handleSubmit(event)" onreset="return confirmReset()">
+
 
         <!-- 1 to 4-->
          <fieldset>
@@ -211,7 +212,50 @@
          <div class="buttons">
             <input type="submit" value="Submit" class="button">
             <input type="reset" value="Reset" class="button">
+            <input type="button" value="View Signups" class="button" onclick="goToView()">
          </div>
     </form>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            if (!confirmSubmit()) return false;
+
+            const form = document.getElementById("signupForm");
+
+            const signup = {
+                id: form.querySelector('input[type="number"]').value,
+                fullname: form.querySelector('input[type="text"]').value,
+                birthday: form.querySelector('input[type="date"]').value,
+                email: form.querySelector('input[type="email"]').value,
+                mobile: form.querySelectorAll('input[type="text"]')[1].value,
+                grade: form.querySelector('select').value,
+                type: form.querySelector('input[name="type"]:checked').value,
+                club: form.querySelectorAll('select')[1].value,
+                reason: form.querySelector('textarea').value
+            };
+            // Get existing signups
+            let signups = JSON.parse(localStorage.getItem("signups"));
+
+            if (!signups) {
+                signups = [];
+            }
+
+            signups.push(signup);
+
+            localStorage.setItem("signups", JSON.stringify(signups));
+
+            alert("Application submitted successfully!");
+            form.reset();
+
+            return false;
+        }
+
+        function goToView() {
+            window.location.href = "viewSignUps.html";
+        }
+    </script>
+
     </main>
 </body>
